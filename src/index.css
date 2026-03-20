@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --midnight: #020617;
+  --emerald-neon: #10b981;
+  --cyber-blue: #3b82f6;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(15, 23, 42, 0.6);
+}
+
+@layer base {
+  body {
+    @apply bg-midnight text-slate-200 font-display antialiased selection:bg-emerald-neon/30 selection:text-white;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .premium-glass {
+    @apply bg-midnight/60 backdrop-blur-premium border border-glass-border shadow-2xl;
+  }
+
+  .premium-card {
+    @apply premium-glass rounded-2xl transition-all duration-500 hover:border-glass-bright hover:shadow-emerald-neon/10 hover:shadow-2xl;
+  }
+
+  .cyber-button {
+    @apply relative px-6 py-3 rounded-xl font-bold transition-all active:scale-95 disabled:opacity-50 overflow-hidden;
+  }
+
+  .cyber-button-primary {
+    @apply cyber-button bg-emerald-neon text-midnight hover:bg-emerald-glowing shadow-[0_0_20px_rgba(16,185,129,0.2)];
+  }
+
+  .cyber-input {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white 
+           focus:outline-none focus:ring-2 focus:ring-emerald-neon/50 focus:border-emerald-neon/50 
+           transition-all placeholder:text-slate-600 font-mono text-sm;
+  }
+
+  .label-cyber {
+    @apply text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2 block font-mono;
+  }
+
+  .terminal-text {
+    @apply font-mono text-emerald-neon drop-shadow-[0_0_5px_rgba(16,185,129,0.5)];
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-emerald-neon/40 transition-colors;
+}
+
+/* Scanline Effect */
+.scanline {
+  @apply absolute inset-0 pointer-events-none opacity-[0.03] z-50;
+  background: linear-gradient(to bottom, transparent 50%, #fff 50%);
+  background-size: 100% 4px;
+}

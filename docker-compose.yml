@@ -11,5 +11,5 @@ services:
         VITE_API_URL: ${VITE_API_URL:-http://localhost:5242}
     container_name: serverpilot-client
     restart: unless-stopped
-    ports:
-      - "${PORT:-3000}:80"
+    # ports:
+    #   - "${PORT:-3000}:80"

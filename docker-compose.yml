@@ -6,8 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        # URL of the backend API reachable from the browser.
-        # When running standalone (no shared Nginx), point this to where the API is.
+        # ⚠️  Set VITE_API_URL in Dokploy → Environment before deploying.
+        # This value is baked into the JS bundle at build time.
+        # Example: VITE_API_URL=https://api.tu-dominio.com
         VITE_API_URL: ${VITE_API_URL:-http://localhost:5242}
     container_name: serverpilot-client
     restart: unless-stopped

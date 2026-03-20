@@ -79,16 +79,24 @@ const TerminalPage = () => {
                 const token = localStorage.getItem('token');
                 const password = server.password ?? '';
                 // Convert the API HTTP URL to a WebSocket URL (http→ws, https→wss)
+                // Password is NOT in the URL — it's sent as the first WS message after connect.
                 const apiUrl = import.meta.env.VITE_API_URL || window.location.origin;
                 const wsUrl = apiUrl
                     .replace(/^https:/, 'wss:')
                     .replace(/^http:/, 'ws:')
-                    + `/api/terminalwebsocket/connect/${serverId}?host=${encodeURIComponent(server.host)}&port=${server.port}&username=${encodeURIComponent(server.username)}&password=${encodeURIComponent(password)}&token=${encodeURIComponent(token)}`;
+                    + `/api/terminalwebsocket/connect/${serverId}?token=${encodeURIComponent(token)}`;
 
                 const ws = new WebSocket(wsUrl);
                 wsRef.current = ws;
 
                 ws.onopen = () => {
+                    // Send credentials as first message — keeps password out of URL/logs
+                    ws.send(JSON.stringify({
+                        host: server.host,
+                        port: server.port,
+                        username: server.username,
+                        password: password
+                    }));
                     setStatus('connected');
                     term.write('\r\x1b[32m[SERVERPILOT] Uplink established.\x1b[0m\r\n');
                 };

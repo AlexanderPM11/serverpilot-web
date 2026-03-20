@@ -10,7 +10,7 @@ RUN npm ci
 COPY . .
 
 # VITE_API_URL is injected at build time so the bundler can inline it
-ARG VITE_API_URL=http://localhost:5242
+ARG VITE_API_URL
 ENV VITE_API_URL=$VITE_API_URL
 
 RUN npm run build

@@ -130,7 +130,7 @@ const SettingsPage = () => {
                             <form onSubmit={handleTelegramSubmit} className="space-y-6">
                                 <div>
                                     <label className="label-cyber">Bot Token</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="password"
                                         value={telegramConfig.botToken}
                                         onChange={(e) => setTelegramConfig({...telegramConfig, botToken: e.target.value})}
@@ -140,7 +140,7 @@ const SettingsPage = () => {
                                 </div>
                                 <div>
                                     <label className="label-cyber">Chat ID</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="text"
                                         value={telegramConfig.chatId}
                                         onChange={(e) => setTelegramConfig({...telegramConfig, chatId: e.target.value})}
@@ -176,7 +176,7 @@ const SettingsPage = () => {
                             <form onSubmit={handlePasswordSubmit} className="space-y-6">
                                 <div>
                                     <label className="label-cyber">Current Key</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="password"
                                         value={passwordData.currentPassword}
                                         onChange={(e) => setPasswordData({...passwordData, currentPassword: e.target.value})}
@@ -188,7 +188,7 @@ const SettingsPage = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <label className="label-cyber">New Key</label>
-                                        <input
+                                        <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                             type="password"
                                             value={passwordData.newPassword}
                                             onChange={(e) => setPasswordData({...passwordData, newPassword: e.target.value})}
@@ -200,7 +200,7 @@ const SettingsPage = () => {
                                     </div>
                                     <div>
                                         <label className="label-cyber">Confirm Key</label>
-                                        <input
+                                        <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                             type="password"
                                             value={passwordData.confirmPassword}
                                             onChange={(e) => setPasswordData({...passwordData, confirmPassword: e.target.value})}
@@ -225,3 +225,4 @@ const SettingsPage = () => {
 };
 
 export default SettingsPage;
+

@@ -50,7 +50,7 @@ const RegisterPage = () => {
                             <label className="label-cyber">Designated Email</label>
                             <div className="relative">
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                                <input
+                                <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ const RegisterPage = () => {
                             <label className="label-cyber">Master Security Key</label>
                             <div className="relative">
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                                <input
+                                <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -98,3 +98,4 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+

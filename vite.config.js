@@ -30,7 +30,11 @@ export default defineConfig({
   ],
   server: {
     proxy: {
-      '/api': 'http://localhost:5242',
+      '/api': {
+        target: 'http://localhost:5242',
+        changeOrigin: true,
+        ws: true  // handles both HTTP and WebSocket upgrades for /api/** routes
+      },
       '/ws/terminal': {
         target: 'http://localhost:5242',
         ws: true

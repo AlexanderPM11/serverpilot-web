@@ -187,7 +187,7 @@ const Dashboard = () => {
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="col-span-2">
                                     <label className="label-cyber">Node Designation</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="text"
                                         placeholder="Production Core-01"
                                         className="cyber-input"
@@ -198,7 +198,7 @@ const Dashboard = () => {
                                 </div>
                                 <div>
                                     <label className="label-cyber">IPv4 / FQDN</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="text"
                                         placeholder="192.168.1.100"
                                         className="cyber-input"
@@ -209,7 +209,7 @@ const Dashboard = () => {
                                 </div>
                                 <div>
                                     <label className="label-cyber">Uplink Port</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="number"
                                         className="cyber-input"
                                         value={newServer.port}
@@ -219,12 +219,15 @@ const Dashboard = () => {
                                 </div>
                                 <div>
                                     <label className="label-cyber">SSH Username</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="text"
                                         placeholder="root"
                                         className="cyber-input"
                                         value={newServer.username}
                                         onChange={(e) => setNewServer({...newServer, username: e.target.value})}
+                                        autoCapitalize="none"
+                                        autoCorrect="off"
+                                        spellCheck="false"
                                         required
                                     />
                                 </div>
@@ -241,7 +244,7 @@ const Dashboard = () => {
                                 </div>
                                 <div className="col-span-2">
                                     <label className="label-cyber">SSH Password / Key Passphrase</label>
-                                    <input
+                                    <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                         type="password"
                                         placeholder="••••••••"
                                         className="cyber-input"
@@ -266,3 +269,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

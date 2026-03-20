@@ -105,7 +105,7 @@ const ResetPasswordPage = () => {
                         <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                             <div>
                                 <label className="label-cyber">New Master Key</label>
-                                <input
+                                <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                     type="password"
                                     value={passwordData.newPassword}
                                     onChange={(e) => setPasswordData({...passwordData, newPassword: e.target.value})}
@@ -118,7 +118,7 @@ const ResetPasswordPage = () => {
 
                             <div>
                                 <label className="label-cyber">Confirm Master Key</label>
-                                <input
+                                <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                                     type="password"
                                     value={passwordData.confirmPassword}
                                     onChange={(e) => setPasswordData({...passwordData, confirmPassword: e.target.value})}
@@ -144,3 +144,4 @@ const ResetPasswordPage = () => {
 };
 
 export default ResetPasswordPage;
+

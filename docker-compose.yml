@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # URL of the backend API reachable from the browser.
+        # When running standalone (no shared Nginx), point this to where the API is.
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:5242}
+    container_name: serverpilot-client
+    restart: unless-stopped
+    ports:
+      - "${PORT:-80}:80"

@@ -53,7 +53,7 @@ const LoginPage = () => {
               <label className="label-cyber">Operator Identity</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                <input
+                <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -68,7 +68,7 @@ const LoginPage = () => {
               <label className="label-cyber">Security Key</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
-                <input
+                <input autoCapitalize="none" autoCorrect="off" spellCheck="false"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -95,13 +95,10 @@ const LoginPage = () => {
             </button>
           </form>
 
-          <div className="mt-8 pt-6 border-t border-white/5 text-center relative z-10 flex flex-col gap-4">
+          <div className="mt-8 pt-6 border-t border-white/5 text-center relative z-10">
             <Link to="/forgot-password" className="text-slate-500 hover:text-white transition-all text-xs font-bold">
               Lost Master Key? <span className="text-rose-500 hover:text-rose-400">Initialize Recovery</span>
             </Link>
-            <p className="text-slate-500 text-sm font-display">
-              Unauthorized? <Link to="/register" className="text-emerald-neon hover:text-emerald-glowing transition-colors font-bold">Request Access</Link>
-            </p>
           </div>
         </div>
 
@@ -115,3 +112,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+

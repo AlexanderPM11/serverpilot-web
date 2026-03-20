@@ -12,4 +12,4 @@ services:
     container_name: serverpilot-client
     restart: unless-stopped
     ports:
-      - "${PORT:-80}:80"
+      - "${PORT:-3000}:80"

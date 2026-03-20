@@ -11,22 +11,20 @@ export default defineConfig(({ mode }) => {
       react(),
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+        includeAssets: ['logo.svg'],
         manifest: {
-          name: 'ServerPilot',
+          name: 'ServerPilot Gateway',
           short_name: 'ServerPilot',
-          description: 'Manage your Linux servers from your mobile',
-          theme_color: '#0a0a0c',
+          description: 'Mission-critical server management console with real-time SSH uplink.',
+          theme_color: '#020617',
+          background_color: '#000000',
+          display: 'standalone',
           icons: [
             {
-              src: 'pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png'
-            },
-            {
-              src: 'pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png'
+              src: '/logo.svg',
+              sizes: '192x192 512x512',
+              type: 'image/svg+xml',
+              purpose: 'any maskable'
             }
           ]
         }

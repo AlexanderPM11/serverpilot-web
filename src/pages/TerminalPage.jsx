@@ -77,10 +77,13 @@ const TerminalPage = () => {
                 // 3. Open raw WebSocket to the dedicated WS controller
                 // Pass credentials as query params (connection is secure via JWT in header)
                 const token = localStorage.getItem('token');
-                const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-                const wsHost = window.location.host;
                 const password = server.password ?? '';
-                const wsUrl = `${wsProtocol}//${wsHost}/api/terminalwebsocket/connect/${serverId}?host=${encodeURIComponent(server.host)}&port=${server.port}&username=${encodeURIComponent(server.username)}&password=${encodeURIComponent(password)}&token=${encodeURIComponent(token)}`;
+                // Convert the API HTTP URL to a WebSocket URL (http→ws, https→wss)
+                const apiUrl = import.meta.env.VITE_API_URL || window.location.origin;
+                const wsUrl = apiUrl
+                    .replace(/^https:/, 'wss:')
+                    .replace(/^http:/, 'ws:')
+                    + `/api/terminalwebsocket/connect/${serverId}?host=${encodeURIComponent(server.host)}&port=${server.port}&username=${encodeURIComponent(server.username)}&password=${encodeURIComponent(password)}&token=${encodeURIComponent(token)}`;
 
                 const ws = new WebSocket(wsUrl);
                 wsRef.current = ws;

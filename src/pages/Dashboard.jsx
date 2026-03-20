@@ -225,9 +225,6 @@ const Dashboard = () => {
                                         className="cyber-input"
                                         value={newServer.username}
                                         onChange={(e) => setNewServer({...newServer, username: e.target.value})}
-                                        autoCapitalize="none"
-                                        autoCorrect="off"
-                                        spellCheck="false"
                                         required
                                     />
                                 </div>

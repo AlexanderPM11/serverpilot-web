@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <!-- Gradient definition -->
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10b981" />
+            <stop offset="100%" stop-color="#3b82f6" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Outer gradient box with border radius -->
+    <rect x="0" y="0" width="512" height="512" rx="100" fill="url(#grad1)" />
+    
+    <!-- Inner dark background box with slightly smaller border radius for the border effect -->
+    <rect x="8" y="8" width="496" height="496" rx="92" fill="#020617" />
+    
+    <!-- Centered Cpu icon from Lucide (scaled by 10.666 to map 24x24 inside 256x256 size in the middle) -->
+    <g transform="translate(128, 128) scale(10.666)" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <rect width="16" height="16" x="4" y="4" rx="2" />
+        <rect width="6" height="6" x="9" y="9" rx="1" />
+        <path d="M15 2v2" />
+        <path d="M15 20v2" />
+        <path d="M2 15h2" />
+        <path d="M2 9h2" />
+        <path d="M20 15h2" />
+        <path d="M20 9h2" />
+        <path d="M9 2v2" />
+        <path d="M9 20v2" />
+    </g>
+</svg>
